@@ -8,14 +8,14 @@ import { Login } from 'Pages/Login/Login';
 export const App = () => {
   return (
     <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
+      // style={{
+      //   height: '100vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      //   fontSize: 40,
+      //   color: '#010101'
+      // }}
     >
       <Header />
       <main>
@@ -23,7 +23,7 @@ export const App = () => {
           <Route path='/' element={<Home />}/>
           <Route path='/contacts' element={<Contacts />}/>
           <Route path='/register' element={<Register />}/>
-          <Route path='/login' element={<Loginnpm  />}/>
+          <Route path='/login' element={<Login  />}/>
           <Route />
         </Routes>
       </main>

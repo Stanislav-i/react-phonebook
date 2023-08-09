@@ -1,13 +1,13 @@
-// import { Route, Routes } from 'react-router-dom';
+import { Link } from "react-router-dom"
 
 export const Header = () => {
     return (
         <div>
             <nav>
-            <link to="/">Home</link>
-            <link to="/contacts">Home</link>
-            <link to="/register">Home</link>
-            <link to="/login">Home</link>
+            <Link to="/">Home</Link>
+            <Link to="/contacts">Contacts</Link>
+            <Link to="/register">Rergister</Link>
+            <Link to="/login">Login</Link>
             <button>Log Out</button>
             </nav>
         </div>
