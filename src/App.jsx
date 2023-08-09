@@ -1,3 +1,10 @@
+import { Route, Routes } from 'react-router-dom';
+import { Header } from 'components/Header/Header';
+import { Home } from 'Pages/Home.jsx/Home';
+import { Contacts } from 'Pages/Contacts/Contacts';
+import { Register } from 'Pages/Register/Register';
+import { Login } from 'Pages/Login/Login';
+
 export const App = () => {
   return (
     <div
@@ -10,7 +17,16 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <Header />
+      <main>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/contacts' element={<Contacts />}/>
+          <Route path='/register' element={<Register />}/>
+          <Route path='/login' element={<Loginnpm  />}/>
+          <Route />
+        </Routes>
+      </main>
     </div>
   );
 };
