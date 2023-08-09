@@ -1,0 +1,34 @@
+.headerLinksContainer {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.headerLink {
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.headerLink:active {
+    color: grey;
+    text-decoration: underline;
+}
+
+.navLinksContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.headerButtonContainer {
+display: block;
+margin-left: auto;
+}
+
+.headerButton {
+    cursor: pointer;
+}
