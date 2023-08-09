@@ -1,15 +1,35 @@
+import { useDispatch } from 'react-redux';
 import css from './RegisterForm.module.css';
 import { nanoid } from 'nanoid';
+import { registerUserThunk } from 'redux/operations';
 
 export const RegisterForm = () => {
     const nameInputId = nanoid();
     const emailInputId = nanoid();
     const passwordInputId = nanoid();
 
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      const name = form.elements.name.value;
+      const email = form.elements.email.value;
+      const password = form.elements.password.value;
+
+      dispatch(
+        registerUserThunk({
+          name,
+          email,
+          password,
+        })
+      )
+    }
+
     return (
     <div className={css.registerFormContainer}>
 
-    <form  className={css.formstyle}>
+    <form onSubmit={handleSubmit}  className={css.formstyle}>
       <label htmlFor={nameInputId} className={css.inputname}>
         Name
       </label>
@@ -23,7 +43,7 @@ export const RegisterForm = () => {
       />
 
       <label htmlFor={emailInputId} className={css.inputname}>
-        Number
+        Email
       </label>
       <input
         type="email"
@@ -38,7 +58,7 @@ export const RegisterForm = () => {
         Password
       </label>
       <input
-        type="text"
+        type="password"
         name="password"
         className={css.inputstyle}
         title="Valid email should be provided"

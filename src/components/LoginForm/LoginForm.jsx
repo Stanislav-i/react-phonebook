@@ -5,13 +5,25 @@ export const LoginForm = () => {
     const emailInputId = nanoid();
     const passwordInputId = nanoid();
 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      // const form = e.currentTarget;
+      // const email = form.elements.email.value;
+      // const password = form.elements.password.value;
+
+      // const finalUserData = {
+      //   email,
+      //   password,
+      // }
+    }
+
     return (
     <div className={css.registerFormContainer}>
 
-    <form  className={css.formstyle}>
+    <form onSubmit={handleSubmit} className={css.formstyle}>
 
       <label htmlFor={emailInputId} className={css.inputname}>
-        Number
+        Email
       </label>
       <input
         type="email"
