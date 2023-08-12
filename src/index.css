@@ -38,3 +38,14 @@ ol {
   padding-left: 0;
   list-style: none;
 }
+
+a {
+  color: rgb(195, 194, 194);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.active {
+  color: white;
+  text-decoration: underline;
+}

@@ -1,7 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Loader } from 'components/Loader/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectToken } from 'redux/authReducer';
+import { refreshUserThunk } from 'redux/operations';
 // import { Home } from 'Pages/Home.jsx/Home';
 // import { Contacts } from 'Pages/Contacts/Contacts';
 // import { Register } from 'Pages/Register/Register';
@@ -13,6 +16,15 @@ const RegisterPage = lazy(() => import('Pages/Register/RegisterPage.jsx'));
 const LoginPage = lazy(() => import('Pages/Login/LoginPage.jsx'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+  
+
+  useEffect(()=> {
+    if(!token) return;
+
+    dispatch(refreshUserThunk());
+  },[token, dispatch])
   return (
     <div
       style={{

@@ -1,20 +1,25 @@
+import { useDispatch } from 'react-redux';
 import css from './LoginForm.module.css';
 import { nanoid } from 'nanoid';
+import { loginUserThunk } from 'redux/operations';
 
 export const LoginForm = () => {
     const emailInputId = nanoid();
     const passwordInputId = nanoid();
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      // const form = e.currentTarget;
-      // const email = form.elements.email.value;
-      // const password = form.elements.password.value;
+      const form = e.currentTarget;
+      const email = form.elements.email.value;
+      const password = form.elements.password.value;
 
-      // const finalUserData = {
-      //   email,
-      //   password,
-      // }
+      dispatch(
+        loginUserThunk({
+          email,
+          password,
+        })
+      )
     }
 
     return (

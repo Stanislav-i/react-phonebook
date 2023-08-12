@@ -8,16 +8,16 @@
     padding-bottom: 15px;
 }
 
-.headerLink {
+/* .headerLink {
     color: white;
     display: inline-block;
     text-decoration: none;
-}
+} */
 
-.headerLink:active {
-    color: grey;
+/* .active {
+    color: red;
     text-decoration: underline;
-}
+} */
 
 .navLinksContainer {
     display: flex;
