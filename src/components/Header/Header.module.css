@@ -8,6 +8,12 @@
     padding-bottom: 15px;
 }
 
+.authContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
 /* .headerLink {
     color: white;
     display: inline-block;
@@ -20,13 +26,16 @@
 } */
 
 .navLinksContainer {
+    width: 100%;
     display: flex;
     gap: 10px;
 }
 
-.headerButtonContainer {
-display: block;
-margin-left: auto;
+.headerLoggedUserContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-left: auto;
 }
 
 .headerButton {

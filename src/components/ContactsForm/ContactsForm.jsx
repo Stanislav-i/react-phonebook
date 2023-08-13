@@ -1,13 +1,35 @@
+import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactsForm.module.css';
 import { nanoid } from 'nanoid';
+import { addContactThunk, selectUserContacts } from 'redux/contactsReducer';
 
 export const ContactForm = () => {
+  const contacts = useSelector(selectUserContacts);
+  const nameInputId = nanoid();
+  const numberInputId = nanoid();
 
-    const nameInputId = nanoid();
-    const numberInputId = nanoid();
-    return (
+  const dispatch = useDispatch();
 
-    <form className={css.formstyle}>
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = form.elements.name.value;
+    const number = form.elements.number.value;
+
+    if (
+      contacts.some(
+        contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+      )
+    ) {
+      alert(`${name} is already in contacts`);
+    } else {
+      dispatch(addContactThunk({ name: name, number: number }));
+    }
+    form.reset();
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={css.formstyle}>
       <label htmlFor={nameInputId} className={css.inputname}>
         Name
       </label>
@@ -39,6 +61,6 @@ export const ContactForm = () => {
       </button>
     </form>
   );
-    }
+};
 
-    export default ContactForm;
+export default ContactForm;

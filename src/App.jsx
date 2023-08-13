@@ -3,12 +3,9 @@ import { Header } from 'components/Header/Header';
 import { Suspense, lazy, useEffect } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectToken } from 'redux/authReducer';
+import { selectAuthentificated, selectToken } from 'redux/authReducer';
 import { refreshUserThunk } from 'redux/operations';
-// import { Home } from 'Pages/Home.jsx/Home';
-// import { Contacts } from 'Pages/Contacts/Contacts';
-// import { Register } from 'Pages/Register/Register';
-// import { Login } from 'Pages/Login/Login';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
 const HomePage = lazy(() => import('Pages/Home/HomePage.jsx'));
 const ContactsPage = lazy(() => import('Pages/Contacts/ContactsPage.jsx'));
@@ -18,13 +15,13 @@ const LoginPage = lazy(() => import('Pages/Login/LoginPage.jsx'));
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
-  
+  const authintifacated = useSelector(selectAuthentificated);
 
-  useEffect(()=> {
-    if(!token) return;
+  useEffect(() => {
+    if (!token || authintifacated) return;
 
     dispatch(refreshUserThunk());
-  },[token, dispatch])
+  }, [token, dispatch, authintifacated]);
   return (
     <div
       style={{
@@ -44,7 +41,14 @@ export const App = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/contacts" element={<ContactsPage />} />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute redirectTo="/login">
+                  <ContactsPage />
+                </PrivateRoute>
+              }
+            />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route />
