@@ -27,7 +27,8 @@ export const ModalEditContact = () => {
     const dispatch = useDispatch();
     return <div className={css.backdrop} onClick={handleOverlayClick}>
         <div className={css.modal}>
-            <p className={css.text}>Edit your contact: </p>
+            <p className={css.text}>This modal window is under construction! 
+            Functionality is not available.</p>
             <button className={css.closeButton} onClick={()=>dispatch(setModalStatus(false))}>&times;</button>
             <EditContactForm />
         </div>

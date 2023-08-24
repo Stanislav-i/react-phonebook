@@ -28,7 +28,9 @@
 }
 
 .text {
-    color: black;
+    color: rgb(243, 8, 8);
+    font-size: larger;
+    font-weight: 700;
     padding-bottom: 15px;
     padding-top: 25px;
     text-align: center;
