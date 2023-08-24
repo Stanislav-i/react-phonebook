@@ -1,10 +1,21 @@
 .contactcontainer {
-    width: 400px;
+    min-width: 400px;
+    max-width: 700px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content:flex-start;
+    gap: 8px;
     color: rgb(255, 255, 255);
     font-size: 20px;
     margin-bottom: 5px;
+}
+
+@media screen and (min-width: 768px) {
+    .contactcontainer {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;}
 }
 
 .info {
@@ -15,6 +26,11 @@
 .contactInfo {
     display: flex;
     align-items: flex-end;
+}
+
+.contactButtons {
+    display: flex;
+    gap: 8px;
 }
 
 .button {
@@ -30,7 +46,7 @@
     border: 3px solid;
     padding: 0.25em 0.5em;
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-    position: relative;
+    /* position: relative; */
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;

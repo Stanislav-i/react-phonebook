@@ -4,14 +4,15 @@
     justify-content: center;
     align-items: center;
     padding: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+
+    margin-left: auto;
+    margin-right: auto;
     background-color: burlywood;
     border: 2px solid black;
 }
 
 @media screen and (min-width: 768px) {
-    .formstyle {width: 400px;}   
+    .formstyle {width: 400px}   
 }
 
 .inputstyle {

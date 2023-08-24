@@ -4,9 +4,10 @@ import { MdContactPhone } from 'react-icons/md';
 
 import { useDispatch } from 'react-redux';
 import { deleteContactThunk } from 'redux/contactsReducer';
+import { setModalStatus } from 'redux/modalSlice';
 
 export const Contact = ({ name, number, id }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
 
   return (
     <div className={css.contactcontainer}>
@@ -16,6 +17,7 @@ export const Contact = ({ name, number, id }) => {
           {name}: {number}
         </p>
       </div>
+      <div className={css.contactButtons}>
       <button
         type="button"
         onClick={() => dispatch(deleteContactThunk(id))}
@@ -23,6 +25,11 @@ export const Contact = ({ name, number, id }) => {
       >
         Delete
       </button>
+      <button type="button" onClick={()=>dispatch(setModalStatus(true))}
+      className={css.button}>
+      Edit  
+      </button>
+      </div>
     </div>
   );
 };
