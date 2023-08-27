@@ -37,6 +37,18 @@ export const deleteContactThunk = createAsyncThunk(
   }
 );
 
+export const editContactThunk = createAsyncThunk(
+  'contacts/editContactThunk',
+  async ({id, newContactData}, thunkApi) => {
+    try {
+      const {data} = await $instance.patch(`/contacts/${id}`, newContactData);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+)
+
 const initialState = {
   contacts: null,
   isLoading: null,
@@ -83,7 +95,17 @@ const contactsSlice = createSlice({
       })
       .addCase(deleteContactThunk.rejected, (state, action) => {
         state.error = action.payload;
-      }),
+      })
+      // ======EDIT CONTACT
+      .addCase(editContactThunk.fulfilled, (state, action) => {
+        const index = state.contacts.findIndex(
+          contact => contact.id === action.payload.id
+        );
+        state.contacts.splice(index, 1, action.payload);
+      })
+      .addCase(editContactThunk.rejected, (state, action) => {
+        state.error = action.payload;
+      })
 });
 
 export const selectUserContacts = state => state.contacts.contacts;

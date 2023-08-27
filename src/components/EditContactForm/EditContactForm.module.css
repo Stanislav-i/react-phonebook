@@ -9,6 +9,7 @@
     margin-right: auto;
     background-color: burlywood;
     border: 2px solid black;
+    border-radius: 15px;
 }
 
 @media screen and (min-width: 768px) {

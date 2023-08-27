@@ -1,5 +1,5 @@
 .formstyle {
-    width: 400px;
+    width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,6 +8,11 @@
     margin-bottom: 25px;
     background-color: burlywood;
     border: 2px solid black;
+    border-radius: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .formstyle {width: 400px;}   
 }
 
 .inputstyle {

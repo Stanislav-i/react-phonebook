@@ -4,8 +4,9 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.4);
     transition: opacity 300ms linear, visibility 300ms linear;
+    z-index: 1;
 }
 
 .modal {
@@ -28,7 +29,7 @@
 }
 
 .text {
-    color: rgb(243, 8, 8);
+    color: rgb(0, 0, 0);
     font-size: larger;
     font-weight: 700;
     padding-bottom: 15px;
