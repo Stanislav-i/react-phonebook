@@ -10,6 +10,9 @@ export const EditContactForm = () => {
   const numberInputId = nanoid();
   const {name, number, id} = useSelector(selectEditContactData);
 
+  const filteredContactsByName = contacts.filter(contact => contact.name !== name);
+  const filteredContactsByNumber = contacts.filter(contact => contact.number !== number);
+
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -19,12 +22,17 @@ export const EditContactForm = () => {
     const newNumber = form.elements.number.value;
 
     if (
-      contacts.some(
+      filteredContactsByName.some(
         contact => contact.name.toLocaleLowerCase() === newName.toLocaleLowerCase()
       )
     ) {
       alert(`${newName} is already in contacts`);
-    } else {
+    } else if (
+      filteredContactsByNumber.some(contact => contact.number === newNumber)
+    ) {
+        alert(`${newNumber} is already used`);
+      }    
+    else {
       dispatch(editContactThunk({ id: id, newContactData: {
         name: newName,
         number: newNumber,

@@ -22,7 +22,12 @@ export const ContactForm = () => {
       )
     ) {
       alert(`${name} is already in contacts`);
-    } else {
+    } else if (
+      contacts.some(contact => contact.number === number)
+    ) {
+        alert(`${number} is already used`);
+      }   
+    else {
       dispatch(addContactThunk({ name: name, number: number }));
     }
     form.reset();
