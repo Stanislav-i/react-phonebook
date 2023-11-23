@@ -25,5 +25,5 @@ The app is responsive and works well on various devices, including desktops, tab
 ### Frameworks:
 
 [![style-Components](https://img.shields.io/static/v1?label=&message=style-Components&color=orange)](https://)
-[![modern-normalize](https://img.shields.io/static/v1?label=&message=modern-normolize&color=orange)](https://)
+[![modern-normalize](https://img.shields.io/static/v1?label=&message=modern-normalize&color=orange)](https://)
 [![redux-persist](https://img.shields.io/static/v1?label=&message=redux-persist&color=orange)](https://)
